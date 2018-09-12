@@ -1,8 +1,8 @@
 #!/bin/bash
-# BruteCMS v1.0.4
+# BruteCMS v1.0.5
 # Github: https://github.com/thelinuxchoice/brutecms
 # Coded by: thelinuxchoice (Don't change noob, read the LICENSE!)
-# Instagram: @thelinuxchoice
+# Instagram: @linux_choice
 trap 'printf "\n";store;exit 1' 2
 
 
@@ -32,13 +32,13 @@ printf "\e[1;77m| ___ \          | |     \e[0m\e[1;92m/  __ \|  \/  |/  ___| \e[
 printf "\e[1;77m| |_/ /_ __ _   _| |_ ___\e[0m\e[1;92m| /  \/| .  . |\ \`--.  \e[0m\n"
 printf "\e[1;77m| ___ \ '__| | | | __/ _ \ \e[0m\e[1;92m|    | |\/| | \`--. \ \e[0m\n"
 printf "\e[1;77m| |_/ / |  | |_| | ||  __/ \e[0m\e[1;92m\__/\| |  | |/\__/ / \e[0m\n"
-printf "\e[1;77m\____/|_|   \__,_|\__\___|\e[0m\e[1;92m\____/\_|  |_/\____/  \e[0m\e[1;77mv1.0.4\e[0m\n"
+printf "\e[1;77m\____/|_|   \__,_|\__\___|\e[0m\e[1;92m\____/\_|  |_/\____/  \e[0m\e[1;77mv1.0.5\e[0m\n"
 printf "\n"
 printf "\e[101m::\e[1;77m CMS BruteForcer coded by: @thelinuxchoice ::\e[0m\n\n"
-printf "\e[1;77m[\e[0m\e[1;92m*\e[0m\e[1;77m] WordPress\e[0m\n"
-printf "\e[1;77m[\e[0m\e[1;92m*\e[0m\e[1;77m] Joomla\e[0m\n"
-printf "\e[1;77m[\e[0m\e[1;92m*\e[0m\e[1;77m] Drupal\e[0m\n"
-printf "\e[1;77m[\e[0m\e[1;92m*\e[0m\e[1;77m] OpenCart\e[0m\n"
+printf "\e[1;77m[\e[0m\e[1;92m+\e[0m\e[1;77m] WordPress\e[0m\n"
+printf "\e[1;77m[\e[0m\e[1;92m+\e[0m\e[1;77m] Joomla\e[0m\n"
+printf "\e[1;77m[\e[0m\e[1;92m+\e[0m\e[1;77m] Drupal\e[0m\n"
+printf "\e[1;77m[\e[0m\e[1;92m+\e[0m\e[1;77m] OpenCart\e[0m\n"
 printf "\n"
 }
 
@@ -157,7 +157,20 @@ if [[ "$default_user" == "" ]]; then
 printf "\e[1;93m [!] Can't locate user!\e[0m\n"
 read -p $'\e[1;92m[*] Username: \e[0m' user
 else
+##
 user="${user:-${default_user}}"
+printf "\e[1;92m[*] Use Username\e[0m\e[1;77m %s\e[0m\e[1;92m ?\e[0m" $user
+default_use_user="Y"
+read -p $'\e[1;77m [Y/n]: \e[0m' use_user
+
+use_user="${use_user:-${default_use_user}}" 
+if [[ $use_user == "Y" || $use_user == "Yes" || $use_user == "yes" || $use_user == "y" ]]; then
+user="${user:-${default_user}}"
+else
+read -p $'\e[1;92m[*] Username: \e[0m' user
+fi 
+##
+
 fi
 
 count_pass=$(wc -l $wl_pass | cut -d " " -f1)
@@ -504,7 +517,19 @@ if [[ "$default_user" == "" ]]; then
 printf "\e[1;93m [!] Can't locate user!\e[0m\n"
 read -p $'\e[1;92m[*] Username: \e[0m' user
 else
+##
 user="${user:-${default_user}}"
+printf "\e[1;92m[*] Use Username\e[0m\e[1;77m %s\e[0m\e[1;92m ?\e[0m" $user
+default_use_user="Y"
+read -p $'\e[1;77m [Y/n]: \e[0m' use_user
+
+use_user="${use_user:-${default_use_user}}"
+if [[ $use_user == "Y" || $use_user == "Yes" || $use_user == "yes" || $use_user == "y" ]]; then
+user="${user:-${default_user}}"
+else
+read -p $'\e[1;92m[*] Username: \e[0m' user
+fi 
+##
 fi
 
 count_pass=$(wc -l $wl_pass | cut -d " " -f1)
